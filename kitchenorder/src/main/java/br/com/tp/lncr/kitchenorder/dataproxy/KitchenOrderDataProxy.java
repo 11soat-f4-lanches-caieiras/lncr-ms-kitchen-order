@@ -75,7 +75,7 @@ public class KitchenOrderDataProxy implements KitchenOrderDatabase {
     }
 
     private void includeFoodItems(KitchenOrderDTO kitchenOrderDto, Boolean includeFoodItems) {
-        if (includeFoodItems && kitchenOrderDto != null) {
+        if (includeFoodItems && (kitchenOrderDto != null)) {
             kitchenOrderDto.setFoodItems(findByKitchenOrderId(kitchenOrderDto.getId()));
         }
     }
