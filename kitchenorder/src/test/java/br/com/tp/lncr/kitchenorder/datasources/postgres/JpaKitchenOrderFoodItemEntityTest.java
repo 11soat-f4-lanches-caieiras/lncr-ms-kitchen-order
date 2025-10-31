@@ -3,7 +3,7 @@ package br.com.tp.lncr.kitchenorder.datasources.postgres;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class JpaKitchenOrderFoodItemEntityTest {
+class JpaKitchenOrderFoodItemEntityTest {
 
     @Test
     void constructorWithAllParametersShouldSetAllFields() {

@@ -5,8 +5,6 @@ import br.com.tp.lncr.core.dtos.kitchenorder.KitchenOrderFoodItemDTO;
 import br.com.tp.lncr.core.enums.KitchenOrderStatus;
 import org.springframework.stereotype.Component;
 
-import java.util.stream.Collectors;
-
 @Component
 public class JpaKitchenOrderMapper {
     public KitchenOrderDTO jpaKitchenOrderToDTO(JpaKitchenOrderEntity entity) {
@@ -20,7 +18,7 @@ public class JpaKitchenOrderMapper {
         if (entity.getFoodItems() != null) {
             dto.setFoodItems(entity.getFoodItems().stream()
                 .map(this::jpaKitchenOrderFoodItemToDTO)
-                .collect(Collectors.toList()));
+                    .toList());
         }
         return dto;
     }
@@ -36,7 +34,7 @@ public class JpaKitchenOrderMapper {
         if (dto.getFoodItems() != null) {
             entity.setFoodItems(dto.getFoodItems().stream()
                 .map(this::kitchenOrderFoodItemDtoToJpa)
-                .collect(Collectors.toList()));
+                    .toList());
         }
         return entity;
     }
