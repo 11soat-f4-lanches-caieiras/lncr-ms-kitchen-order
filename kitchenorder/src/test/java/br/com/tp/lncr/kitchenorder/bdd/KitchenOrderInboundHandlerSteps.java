@@ -1,6 +1,7 @@
 package br.com.tp.lncr.kitchenorder.bdd;
 
 import br.com.tp.lncr.core.exceptions.KitchenOrderException;
+import br.com.tp.lncr.core.model.ResponseMetadata;
 import br.com.tp.lncr.kitchenorder.handlers.KitchenOrderInboundHandler;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
@@ -14,7 +15,6 @@ public class KitchenOrderInboundHandlerSteps {
     private KitchenOrderInboundHandler handler;
     private KitchenOrderException exception;
     private ResponseEntity<Object> response;
-    private String errorMessage;
     private Integer errorCode;
 
     @Dado("que ocorreu uma KitchenOrderException com código {int}")
@@ -25,8 +25,7 @@ public class KitchenOrderInboundHandlerSteps {
 
     @Dado("a mensagem é {string}")
     public void aMensagemE(String mensagem) {
-        errorMessage = mensagem;
-        exception = new KitchenOrderException(errorMessage, errorCode);
+        exception = new KitchenOrderException(mensagem, errorCode);
     }
 
     @Quando("o handler processar a exceção")
@@ -44,9 +43,10 @@ public class KitchenOrderInboundHandlerSteps {
     public void aRespostaDeveConterAMensagem(String expectedMessage) {
         assertNotNull(response);
         assertNotNull(response.getBody());
-        String bodyString = response.getBody().toString();
-        assertTrue(bodyString.contains(expectedMessage),
-            "A resposta deveria conter a mensagem: " + expectedMessage + ", mas contém: " + bodyString);
+        assertInstanceOf(ResponseMetadata.class, response.getBody(), "O corpo da resposta deveria ser uma instância de ResponseMetadata");
+        ResponseMetadata metadata = (ResponseMetadata) response.getBody();
+        assertEquals(expectedMessage, metadata.getMessage(),
+            "A resposta deveria conter a mensagem: " + expectedMessage + ", mas contém: " + metadata.getMessage());
     }
 }
 

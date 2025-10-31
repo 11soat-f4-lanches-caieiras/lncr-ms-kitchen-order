@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
-public class JpaKitchenOrderEntityTest {
+class JpaKitchenOrderEntityTest {
 
     @Test
     void constructorWithAllParametersShouldSetAllFields() {
@@ -107,11 +107,6 @@ public class JpaKitchenOrderEntityTest {
         entity.prePersist();
         LocalDateTime firstCreated = entity.getCreated();
 
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
 
         entity.prePersist();
         LocalDateTime secondCreated = entity.getCreated();
@@ -126,11 +121,6 @@ public class JpaKitchenOrderEntityTest {
         entity.preUpdate();
         LocalDateTime firstUpdated = entity.getUpdated();
 
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
 
         entity.preUpdate();
         LocalDateTime secondUpdated = entity.getUpdated();

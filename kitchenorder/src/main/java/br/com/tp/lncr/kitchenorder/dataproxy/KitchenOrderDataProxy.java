@@ -68,14 +68,14 @@ public class KitchenOrderDataProxy implements KitchenOrderDatabase {
         return kitchenOrderDTOList;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<KitchenOrderFoodItemDTO> findByKitchenOrderId(Integer kitchenOrderId) {
         return this.jpaKitchenOrderFoodItemRepositoryImpl.findByKitchenOrderId(kitchenOrderId,jpaKitchenOrderFoodItemRepository,jpaKitchenOrderMapper);
     }
 
     private void includeFoodItems(KitchenOrderDTO kitchenOrderDto, Boolean includeFoodItems) {
-        if (includeFoodItems && kitchenOrderDto != null) {
+        if (includeFoodItems && (kitchenOrderDto != null)) {
             kitchenOrderDto.setFoodItems(findByKitchenOrderId(kitchenOrderDto.getId()));
         }
     }
@@ -84,7 +84,6 @@ public class KitchenOrderDataProxy implements KitchenOrderDatabase {
     @Override
     public KitchenOrderDTO save(KitchenOrderDTO kitchenOrderDto) {
         kitchenOrderDto = this.jpaKitchenOrderRepositoryImpl.save(kitchenOrderDto, jpaKitchenOrderRepository, jpaKitchenOrderMapper);
-        Integer kitchenOrderId = kitchenOrderDto.getId();
         setKitchenOrderIdOnFoodItems(kitchenOrderDto);
         if (kitchenOrderDto.getFoodItems() != null && !kitchenOrderDto.getFoodItems().isEmpty())
             kitchenOrderDto.setFoodItems(this.jpaKitchenOrderFoodItemRepositoryImpl.saveAll(kitchenOrderDto.getFoodItems(),jpaKitchenOrderFoodItemRepository,jpaKitchenOrderMapper));

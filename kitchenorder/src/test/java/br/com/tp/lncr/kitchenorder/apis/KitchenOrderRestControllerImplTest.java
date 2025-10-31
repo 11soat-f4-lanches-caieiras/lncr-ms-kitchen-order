@@ -1,6 +1,5 @@
 package br.com.tp.lncr.kitchenorder.apis;
 
-import br.com.tp.lncr.kitchenorder.apis.KitchenOrderRestControllerImpl;
 import br.com.tp.lncr.commons.model.ResponseListModel;
 import br.com.tp.lncr.commons.model.ResponseModel;
 import br.com.tp.lncr.kitchenorder.configs.KitchenOrderConfig;
