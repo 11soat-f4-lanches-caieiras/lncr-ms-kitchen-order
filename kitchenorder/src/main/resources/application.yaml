@@ -1,6 +1,8 @@
 spring:
   application:
-    name: lncr-ms-kitchen-order
+    name: kitchenOrder
+  server:
+    port: "${SERVER_PORT:8080}"
   jackson:
     default-property-inclusion: non_null
     serialization:
@@ -15,7 +17,6 @@ spring:
       ddl-auto: update
       show-sql: true
       format_sql: true
-
 management:
   endpoints:
     web:
@@ -27,13 +28,12 @@ management:
 server:
   port: 8080
 lncr:
-  internal-url: "${LNCR_INTERNAL_URL:http://localhost:8080}"
-  external-url: "${LNCR_EXTERNAL_URL:http://localhost:8080}"
+  internalUrl: "${LNCR_ALB_URL:http://localhost:8080}"
+  externalUrl: "${LNCR_EXTERNAL_URL}"
   integration:
-    customer-orders-url: "${lncr.internal-url}/customerOrders"
-    food-items-url: "${lncr.internal-url}/foodItems"
-    food-items-list-url: "${lncr.internal-url}/foodItems/listIds"
-    notification-url: "${lncr.internal-url}/notifications"
+    customerOrdersUrl: "${lncr.internalUrl}/customerOrders"
+    foodItemsUrl: "${lncr.internalUrl}/foodItems"
+    notificationUrl: "${lncr.internalUrl}/notifications"
 
   kitchen-order:
     location-prefix: "${lncr.external-url}/kitchenOrders"
