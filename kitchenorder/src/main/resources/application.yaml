@@ -28,8 +28,8 @@ management:
 server:
   port: 8080
 lncr:
-  internalUrl: "${LNCR_ALB_URL:http://localhost:8080}"
-  externalUrl: "${LNCR_EXTERNAL_URL}"
+  internalUrl: "${LNCR_INTERNAL_URL:http://localhost:8080}"
+  externalUrl: "${LNCR_EXTERNAL_URL:http://localhost:8080}"
   integration:
     customerOrdersUrl: "${lncr.internalUrl}/customerOrders"
     foodItemsUrl: "${lncr.internalUrl}/foodItems"
