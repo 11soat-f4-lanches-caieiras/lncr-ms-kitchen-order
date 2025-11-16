@@ -49,7 +49,7 @@ jobs:
   build-and-upload:
     name: Validação Construção e Upload da Imagem Docker
     runs-on: ubuntu-latest
-    #runs-on: codebuild-github-lncr-app-${{ github.run_id }}-${{ github.run_attempt }}
+    #runs-on: ${{ env.AWS_CODE_BUILD }}-${{ github.run_id }}-${{ github.run_attempt }}
     #Disparado via repository_dispatch do repositório lncr-iac
     if: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'repository_dispatch') && !inputs.only-helm-deploy }}
     environment:
@@ -234,7 +234,7 @@ jobs:
 ##          issue-body: "Please approve the deployment of infrastructure changes."
 #  deploy:
 #    name: Deploy no Cluster Kubernetes
-#    runs-on: codebuild-github-lncr-app-${{ github.run_id }}-${{ github.run_attempt }}
+#    runs-on: ${{ env.AWS_CODE_BUILD }}-${{ github.run_id }}-${{ github.run_attempt }}
 #    #needs: [approve-after-build, approve-helm-only]
 #    #if: ${{ always() && (needs.approve-after-build.result == 'success' || needs.approve-helm-only.result == 'success') }}
 #    environment:
