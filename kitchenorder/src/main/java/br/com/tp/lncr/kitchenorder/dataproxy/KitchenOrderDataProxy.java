@@ -80,7 +80,6 @@ public class KitchenOrderDataProxy implements KitchenOrderDatabase {
         }
     }
 
-    @Transactional(readOnly = true)
     @Override
     public KitchenOrderDTO save(KitchenOrderDTO kitchenOrderDto) {
         kitchenOrderDto = this.jpaKitchenOrderRepositoryImpl.save(kitchenOrderDto, jpaKitchenOrderRepository, jpaKitchenOrderMapper);
