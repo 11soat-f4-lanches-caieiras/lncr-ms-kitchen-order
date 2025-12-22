@@ -1,7 +1,7 @@
 package br.com.tp.lncr.kitchenorder.bdd;
 
 import br.com.tp.lncr.core.exceptions.KitchenOrderException;
-import br.com.tp.lncr.core.model.ResponseMetadata;
+import br.com.tp.lncr.commons.model.ResponseMetadata;
 import br.com.tp.lncr.kitchenorder.handlers.KitchenOrderInboundHandler;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
