@@ -32,7 +32,7 @@ Microserviço responsável pelo gerenciamento de **Ordens de Preparo** no sistem
 
 ## Sonar Quality Gate
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=11soat-f4-lanches-caieiras_lncr-ms-kitchen-order&metric=alert_status)](https://sonarcloud.io/project/overview?id=11soat-f4-lanches-caieiras_lncr-ms-kitchen-order)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=11soat-f4-lanches-caieiras_lncr-ms-kitchen-order&metric=alert_status&token=0fb9b0a11722ce288a62d375348cc1a5784da52a)](https://sonarcloud.io/summary/new_code?id=11soat-f4-lanches-caieiras_lncr-ms-kitchen-order)
 
 Acesse o dashboard completo: [SonarCloud - lncr-ms-kitchen-order](https://sonarcloud.io/project/overview?id=11soat-f4-lanches-caieiras_lncr-ms-kitchen-order)
 
